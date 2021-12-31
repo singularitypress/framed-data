@@ -39,7 +39,7 @@ const DailyShots = () => {
           <Input placeholder="Add/remove spacing between the months" className="w-full" type="number" onChange={changeMonthSpacing} />
         </div>
       </div>
-      <div className="dark:bg-theme-dp04 shadow-md h-3/5 rounded-md px-8">
+      <div className="dark:bg-theme-dp04 shadow-md h-4/5 rounded-md px-8">
         <ResponsiveCalendar
           data={data}
           from="2021-01-01"

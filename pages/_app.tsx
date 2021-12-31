@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Nav } from "../components";
 import { ThemeContext } from "../context";
+import { navItems } from "../data";
 
 import "../styles/globals.css";
 import "../styles/theme.scss";
@@ -28,7 +30,14 @@ const App = ({ Component, pageProps }: IProps) => {
     }
   }, []);
 
-  return <ThemeContext.Provider value={theme}><Component {...pageProps} /></ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={theme}>
+      <Nav {...navItems} />
+      <main className="pt-24">
+        <Component {...pageProps} />
+      </main>
+    </ThemeContext.Provider>
+  );
 };
 
 export default App;

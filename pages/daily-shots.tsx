@@ -1,8 +1,8 @@
-import React, { ChangeEvent, MouseEvent, useContext, useEffect, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useContext, useState } from "react";
 import { ResponsiveCalendar } from "@nivo/calendar";
 
 import data from "../data/shottracking";
-import { calendarColours, themeAccent, themeBase } from "../data";
+import { calendarColours, themeAccent, themeBase, themeDp24 } from "../data";
 import { Button, Input } from "../components";
 import { ThemeContext } from "../context";
 
@@ -44,7 +44,7 @@ const DailyShots = () => {
           data={data}
           from="2021-01-01"
           to="2021-12-31"
-          emptyColor="#eeeeee"
+          emptyColor={theme === "dark" ? themeDp24 : "#eeeeee"}
           colors={colours}
           theme={{
             textColor: theme === "dark" ? themeAccent : themeBase,

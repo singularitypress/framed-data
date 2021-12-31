@@ -1,27 +1,39 @@
-import React, { MouseEvent, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useState } from "react";
 import { ResponsiveCalendar } from "@nivo/calendar";
 
 import data from "../data/shottracking";
 import { calendarColours } from "../data";
-import { Button } from "../components";
+import { Button, Input } from "../components";
 
 type TColours = "singleHue" | "heat";
 
 const DailyShots = () => {
   const [colours, setColours] = useState(calendarColours.singleHue);
+  const [monthSpacing, setMonthSpacing] = useState(0);
 
   const changeColours = (e: MouseEvent<HTMLButtonElement>) => {
     setColours(calendarColours[(e.target as HTMLButtonElement).value as TColours]);
   };
 
+  const changeMonthSpacing = (e: ChangeEvent<HTMLInputElement>) => {
+    setMonthSpacing(
+      parseInt(e.target.value || "0"),
+    );
+  };
+
   return (
     <div className="h-screen container mx-auto">
-      <Button onClick={changeColours} value={"singleHue"} className="mr-4">
-        Single Hue
-      </Button>
-      <Button onClick={changeColours} value={"heat"}>
-        Heat Map Colouring
-      </Button>
+      <div className="mb-8">
+        <Button onClick={changeColours} value={"singleHue"} className="mr-4">
+          Single Hue
+        </Button>
+        <Button onClick={changeColours} value={"heat"}>
+          Heat Map Colouring
+        </Button>
+      </div>
+      <div className="mb-8">
+        <Input placeholder="Add/remove spacing between the months" className="w-full" type="number" onChange={changeMonthSpacing} />
+      </div>
       <ResponsiveCalendar
         data={data}
         from="2021-01-01"
@@ -34,6 +46,7 @@ const DailyShots = () => {
         dayBorderWidth={2}
         dayBorderColor="#ffffff"
         legendFormat={(value) => `${value}+ shots`}
+        monthSpacing={monthSpacing}
         legends={[
           {
             anchor: "top",

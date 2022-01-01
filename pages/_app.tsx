@@ -33,7 +33,7 @@ const App = ({ Component, pageProps }: IProps) => {
   return (
     <ThemeContext.Provider value={theme}>
       <Nav {...navItems} />
-      <main className="pt-24">
+      <main className="pt-24 container mx-auto">
         <Component {...pageProps} />
       </main>
     </ThemeContext.Provider>

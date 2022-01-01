@@ -1,13 +1,13 @@
 export const navItems = {
-  title: "",
+  title: "Framed Data",
   leftNav: [
     {
       href: "/",
       text: "Home",
     },
     {
-      href: "/daily-shots",
-      text: "Daily Shots",
+      href: "/shot-tracking",
+      text: "Shot Tracking",
     },
   ],
   rightNav: [

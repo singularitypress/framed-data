@@ -8,9 +8,12 @@ interface IData {
   day: string;
 }
 
-if (process.env.INPUT && process.env.OUTPUT) {
+const [, input] = process.argv.filter((arg) => arg.indexOf("--input=") > -1)[0].split("=");
+const [, output] = process.argv.filter((arg) => arg.indexOf("--output=") > -1)[0].split("=");
+
+if (process.env[input] && process.env[output]) {
   const data = fs
-    .readFileSync(path.resolve(process.env.INPUT), { encoding: "utf-8" })
+    .readFileSync(path.resolve(`${process.env[input]}`), { encoding: "utf-8" })
     .split("\n")
     .reduce((dataList, line, index) => {
       if (index === 0) return dataList;
@@ -31,7 +34,7 @@ if (process.env.INPUT && process.env.OUTPUT) {
     }, [] as IData[]);
 
   fs.writeFileSync(
-    path.resolve(process.env.OUTPUT),
+    path.resolve(`${process.env[output]}`),
     `export default ${JSON.stringify(data)}`,
     { encoding: "utf-8" },
   );

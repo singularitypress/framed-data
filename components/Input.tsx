@@ -8,7 +8,7 @@ export const Input = (props: IProps) => {
       {...props}
       className={`
         p-4
-        rounded-sm
+        rounded-md
         border-b-2
         border-black
         dark:bg-theme-accent

@@ -7,6 +7,9 @@ import sys from "../data/shottracking";
 import hof from "../data/hoftracking";
 
 const SysVsHof = () => {
+  const groupMonthly = (item: {day: string; value: number}) => {
+
+  };
   return (
     <Container className="h-screen">
       <ResponsiveLine

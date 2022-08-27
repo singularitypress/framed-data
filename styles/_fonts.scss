@@ -1,0 +1,12 @@
+html {
+  font-family: "Inter", sans-serif;
+
+  &.dark {
+    @apply text-gray-100;
+  }
+
+  .headline {
+    @apply text-6xl font-black;
+    line-height: 3rem;
+  }
+}

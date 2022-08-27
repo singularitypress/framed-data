@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./fonts";
+
+html {
+  &.dark {
+    @apply bg-gray-900;
+  }
+}

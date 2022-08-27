@@ -1,8 +1,0 @@
-@import "./variables.scss";
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: $theme-base;
-    color: $theme-accent;
-  }
-}

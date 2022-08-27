@@ -1,0 +1,3 @@
+[submodule "public/hall-of-framed-db"]
+	path = public/hall-of-framed-db
+	url = https://github.com/singularitypress/hall-of-framed-db.git

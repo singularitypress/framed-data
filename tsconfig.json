@@ -23,6 +23,9 @@
       "@components/*": [
         "components/*"
       ],
+      "@types": [
+        "types"
+      ]
     }
   },
   "include": [

@@ -1,9 +1,8 @@
 import { Hero } from "@components/organism";
-import axios from "axios";
+import { IUsers } from "@types";
 import { NextPage } from "next";
 
-const Home: NextPage<{ users: any }> = ({ users }) => {
-  console.log(users);
+const Home: NextPage<{ users: IUsers }> = ({ users }) => {
   return (
     <Hero variant="grid">
       <div className="h-full flex flex-col justify-center">
@@ -24,16 +23,6 @@ const Home: NextPage<{ users: any }> = ({ users }) => {
       </div>
     </Hero>
   );
-};
-
-export const getStaticProps = async () => {
-  const users = await axios.get("/api/users");
-
-  return {
-    props: {
-      users,
-    },
-  };
 };
 
 export default Home;
